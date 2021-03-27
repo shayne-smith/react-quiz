@@ -23,22 +23,26 @@ const QuestionCard: React.FC<Props> = ({
     questionNr, 
     totalQuestions 
 }) => (
-    <div>
+    <Wrapper>
         <p className="number">
             Question: { questionNr } / { totalQuestions }
         </p>
         <p dangerouslySetInnerHTML={{ __html: question }} />
         <div>
             { answers && answers.map((answer, index) => (
-                <div key={ index }>
+                <ButtonWrapper 
+                    key={ index }
+                    correct={ userAnswers?.correctAnswer === answer }
+                    userClicked={ userAnswers?.answer === answer }
+                >
                     <button disabled={ !!userAnswers } value={ answer } onClick={ callback }>
                         { answer }
                     </button>
-                </div>   
+                </ButtonWrapper>   
             ))
             }
         </div>
-    </div>
+    </Wrapper>
 );
 
 export default QuestionCard;
