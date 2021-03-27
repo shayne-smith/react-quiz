@@ -15,10 +15,6 @@ export const GlobalStyle = createGlobalStyle`
         justify-content: center;
     }
 
-    .App {
-        color: white;
-    }
-
     * {
         box-sizing: border-box;
         font-family: 'Catamaran', sans-serif;
